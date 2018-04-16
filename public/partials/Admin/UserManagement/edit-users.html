@@ -1,0 +1,65 @@
+
+<div ng-controller="editController" >
+
+    <div class="col-xl-6">
+        <div class="card pd-20 pd-sm-40 form-layout form-layout-4">
+            <center><h1 class="card-body-title">EDIT-USERS</h1></center><hr>
+            <form ng-submit="update(editUser)" name="updateUser">
+
+                <div class="row">
+                    <label class="col-sm-4 form-control-label">Name : <span class="tx-danger">*</span></label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                        <input type="text" class="form-control"  placeholder="Enter Name" id="name" name="name" ng-model="editUser.name" required >
+                        <p ng-if="!editUser.name"  style="text-align: left;color: #a00000;">* Name field is required.</p>
+                    </div>
+                </div>
+
+                <div class="row mg-t-20">
+                    <label class="col-sm-4 form-control-label">User Name : <span class="tx-danger">*</span></label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                        <input type="text" class="form-control" placeholder="Enter Username" id="username"  name="username" ng-model="editUser.user_name" ng-minlength="8"  ng-maxlength="16"  ng-keyup='editCheckUsername()' required >
+                        <div style="color: #a94442;">{{status}}</div>
+                        <p ng-show="updateUser.username.$error.required" style="text-align: left;color: #a00000;">* Username field is required</p>
+                        <p ng-show="updateUser.username.$error.minlength"  style="text-align: left;color: #a00000;">* Username Contain Atleast 8 Characters</p>
+                        <p ng-show="updateUser.username.$error.maxlength"  style="text-align: left;color: #a00000;">* Username Contain Maximum 16 characters</p>
+
+                    </div>
+                </div>
+
+                <div class="row mg-t-20">
+                    <label class="col-sm-4 form-control-label">Role : <span class="tx-danger">*</span></label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+
+                        <select class="form-control select2"    ng-model="selectedRole" ng-options="role.label for role in roles" name="role"  required>
+
+
+                            <p ng-if="updateUser.select.$invalid && updateUser.$submitted" style="text-align: left;color: #a00000;"></p>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mg-t-20">
+                    <label class="col-sm-4 form-control-label">Mobile : </label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                        <input type="text" class="form-control" placeholder="Enter Mobile Number" name="mobile" id="mobile" ng-model="editUser.mobile_no">
+
+                    </div>
+                </div>
+
+                <div class="row mg-t-20">
+                    <label class="col-sm-4 form-control-label">Email : </label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                        <input type="email" class="form-control" placeholder="Enter email address" id="email" name="email" ng-model="editUser.email">
+                    </div>
+                </div>
+
+                <div class="form-layout-footer mg-t-30">
+                    <center><button type="submit" class="btn btn-info mg-r-5"  >Submit Changes</button></center>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+
+</div>

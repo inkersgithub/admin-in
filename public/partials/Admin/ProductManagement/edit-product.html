@@ -1,0 +1,102 @@
+<div class="row row-sm mg-t-20"  ng-controller="EditProductController">
+    <div class="col-xl-6">
+        <div class="card pd-20 pd-sm-40 form-layout form-layout-4">
+
+            <center><h1 class="card-body-title">EDIT-PRODUCT</h1></center><hr>
+
+            <form name="productForm" ng-submit="editProducts(editProduct)">
+
+
+                <div class="row">
+                    <label class="col-sm-4 form-control-label">Category: <span class="tx-danger">*</span></label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                        <select class="form-control select2" ng-model="editselectedCategory" ng-options="category.name for category in editCategoryDetails" name="role"  ng-change="editfindSubCategory(editselectedCategory)" required>                            
+                        <p ng-show="addsproductFormheeet.select.$invalid && productForm.$submitted" style="text-align: left;color: #a00000;">Select Value</p>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row mg-t-20">
+                    <label class="col-sm-4 form-control-label">Sub Category: <span class="tx-danger">*</span></label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                        <select class="form-control js-example-basic-single" id="categorySelect2"   ng-model="editSelectedSubCategory" ng-options="subcategory.sub_category_name for subcategory in editSubCategoryDetails"  required>
+                        </select><br>
+                    </div>
+                </div>
+
+                <div class="row mg-t-20">
+                    <label class="col-sm-4 form-control-label">Product Id: <span class="tx-danger">*</span></label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0" ng-class="{ 'has-error' : productForm.name.$invalid && !productForm.name.$pristine }">
+                        <input type="text" class="form-control"  name="product_id" placeholder="Enter Product Id" ng-model="editProduct.productId" required >
+                        <p ng-if="!editProduct.productId" style="text-align: left;color: #a00000;">*Product id is required !</p>
+                    </div>
+                </div>
+
+                <div class="row mg-t-20">
+                    <label class="col-sm-4 form-control-label">Product Name: <span class="tx-danger">*</span></label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0" ng-class="{ 'has-error' : productForm.name.$invalid && !productForm.name.$pristine }">
+                        <input type="text" class="form-control"  name="product_name" placeholder="Enter Product Name" ng-model="editProduct.product_name" required >
+                        <p ng-if="!editProduct.product_name" style="text-align: left;color: #a00000;">*Product name is required !</p>
+                    </div>
+                </div>
+
+                <div class="row mg-t-20">
+                    <label class="col-sm-4 form-control-label">Old Price <span class="tx-danger">*</span></label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                        <input type="number" class="form-control"  name="old_price" placeholder="Enter Old Price" ng-model="editProduct.old_price" required >
+                        <p ng-if="!editProduct.old_price" style="text-align: left;color: #a00000;">*Old Price is required !</p>
+                    </div>
+                </div>
+
+                <div class="row mg-t-20">
+                    <label class="col-sm-4 form-control-label">New Price <span class="tx-danger">*</span></label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                        <input type="number" class="form-control"  name="new_price" placeholder="Enter New Price" ng-model="editProduct.new_price" required >
+                        <p ng-if="!editProduct.new_price" style="text-align: left;color: #a00000;">*New Price is required !</p>
+                    </div>
+                </div>
+
+                <div class="row mg-t-20">
+                    <label class="col-sm-4 form-control-label">Link</label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                        <input type="text" class="form-control"  name="link" placeholder="Enter Link" ng-model="editProduct.link"  >
+                        <p ng-if="!editProduct.link" style="text-align: left;color: #a00000;"></p>
+                    </div>
+                </div>
+
+                <div class="row mg-t-20">
+                    <label class="col-sm-4 form-control-label">Description: </label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                        <textarea class="form-control" name="description" placeholder="Enter Product Description" rows="5" ng-model="editProduct.description" ></textarea>
+                    </div>
+                </div>
+
+                <div class="row mg-t-20">
+                    <div class="col-sm-4">
+                        <label class="form-control-label">Edit Main Photo:</label>
+                    </div>
+
+                    <div class="col-sm-8">
+                        <img id="product-image" ng-model="editProduct.image" ng-src="../storage/ProductThumbnail/{{editProduct.image}}" class="col-sm-12 img-responsive" >
+                    </div>
+
+                    <div class="col-sm-4"></div>
+
+                    <div class="col-sm-6">
+                        <label class="custom-file">
+                            <input type="file" id="image-file" name="file" ngf-select ng-model="picFile" class="form-control custom-file-input primary" onchange="document.getElementById('product-image').src = window.URL.createObjectURL(this.files[0])" >
+                            <span class="custom-file-control"></span>
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="form-layout-footer mg-t-30">
+                    <center><button id="site-submit" type="submit"  ng-click="updateProductDetails(picFile)" class="btn btn-info mg-r-2">Submit Form</button></center>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="row row-sm mg-t-20"  ng-controller="ProductDetailsController">
+    <div class="col-xl-6">
+        <div class="card pd-20 pd-sm-40 form-layout form-layout-4">
+        <h4>Product Details</h4>
+
+            <div class="row mg-t-20">
+                <label class="col-sm-4 form-control-label">Category :</label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0 tx-inverse" ng-bind="selectedProduct.category"></div>
+            </div>
+
+            <div class="row mg-t-20">
+                <label class="col-sm-4 form-control-label">Sub Category :</label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0 tx-inverse" ng-bind="selectedProduct.subcategory"></div>
+            </div>
+
+            <div class="row mg-t-20">
+                <label class="col-sm-4 form-control-label">Product Id :</label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0 tx-inverse" ng-bind="selectedProduct.productId"></div>
+            </div>
+
+            <div class="row mg-t-20">
+                <label class="col-sm-4 form-control-label">Product Name :</label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0 tx-inverse" ng-bind="selectedProduct.product_name"></div>
+            </div>
+
+            <div class="row mg-t-20">
+                <label class="col-sm-4 form-control-label">Old Price  :</label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0 tx-inverse" ng-bind="selectedProduct.old_price"></div>
+            </div>
+
+            <div class="row mg-t-20">
+                <label class="col-sm-4 form-control-label">New Price :</label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0 tx-inverse" ng-bind="selectedProduct.new_price"></div>
+            </div>
+
+            <div class="row mg-t-20">
+                <label class="col-sm-4 form-control-label">Link :</label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0 tx-inverse" ng-bind="selectedProduct.link"></div>
+            </div>
+
+            <div class="row mg-t-20">
+                <label class="col-sm-4 form-control-label">Description :</label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0 tx-inverse" ng-bind="selectedProduct.description"></div>
+            </div><hr>
+
+            <div class="col-sm-8">
+                <img id="product-image" ng-model="selectedProduct.image" ng-src="../storage/ProductThumbnail/{{selectedProduct.image}}" class="col-sm-12 img-responsive" >
+            </div>
+
+        </div>
+    </div>
+</div>

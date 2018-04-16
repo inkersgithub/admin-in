@@ -1,0 +1,50 @@
+ #product-images{
+    height: 150px;
+    width: 150px;
+    padding: 14px;
+}
+ #product-image{
+    height: 180px;
+    width: 290px;
+}
+.previos_pagination{
+
+    width: 53px;
+    cursor: all-scroll;
+}
+.next_pagination{
+
+    width: 53px;
+    cursor: all-scroll;
+}
+.stright{
+    padding: 0px;
+    margin-top: 17px;
+}
+.stright li{
+    float: left;
+    list-style: none;
+    cursor: all-scroll;
+}
+.stright li a {
+    border: 1px solid grey;
+    padding: 5px;
+    cursor: all-scroll;
+
+}
+
+
+li.selected a{
+    background-color: blue;
+    color: white !important;
+    cursor: all-scroll;
+}
+
+.disabled {
+    pointer-events: none  !important;
+    /*pointer:not-allowed  !important;*/
+}
+.disabled :hover{
+    cursor:not-allowed !important;
+    /*pointer:not-allowed;*/
+}

@@ -1,0 +1,18 @@
+<div class="row row-sm mg-t-20"  ng-controller="SubCategoryDetailsController">
+    <div class="col-xl-6">
+        <div class="card pd-20 pd-sm-40 form-layout form-layout-4">
+
+            <center><h1 class="card-body-title">SUB CATEGORY DETAILS</h1></center><hr>
+
+            <div class="row">
+                <label class="col-sm-4 form-control-label">Sub Category Name:</label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0 tx-inverse" ng-bind="subCategoryDetails.sub_category_name"></div>
+            </div>
+
+            <div class="row mg-t-20" ng-hide ng-if="subCategoryDetails.description!=null">
+                <label class="col-sm-4 form-control-label">Description: </label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0 tx-inverse" ng-bind="subCategoryDetails.description"></div>
+            </div>
+        </div>
+    </div>
+</div>

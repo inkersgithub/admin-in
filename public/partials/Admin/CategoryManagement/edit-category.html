@@ -1,0 +1,31 @@
+<div class="row row-sm mg-t-20"  ng-controller="EditCategoryController">
+    <div class="col-xl-6">
+        <div class="card pd-20 pd-sm-40 form-layout form-layout-4">
+
+            <center><h1 class="card-body-title">EDIT-CATEGORy</h1></center><hr>
+
+            <form name="categoryForm" ng-submit="edit(editCategory)">
+
+                <div class="row">
+                    <label class="col-sm-4 form-control-label">Name: <span class="tx-danger">*</span></label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0" ng-class="{ 'has-error' : categoryForm.name.$invalid && !categoryForm.name.$pristine }">
+                        <input type="text" class="form-control" name="category_name" placeholder="Enter Category Name" ng-model="editCategory.name" required >
+                        <p ng-if="!editCategory.name" style="text-align: left;color: #a00000;">*Category name is required !</p>
+                    </div>
+                </div>
+
+                <div class="row mg-t-20">
+                    <label class="col-sm-4 form-control-label">Description: </label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                        <textarea class="form-control" name="description" placeholder="Enter Category Description" rows="5" ng-model="editCategory.description" ></textarea>
+                    </div>
+                </div>
+
+                <div class="form-layout-footer mg-t-30">
+                    <center><button  type="submit" class="btn btn-info mg-r-5">Submit Form</button></center>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

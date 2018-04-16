@@ -1,0 +1,60 @@
+<div class="card pd-20 pd-sm-40 mg-t-50" ng-controller="CategoryController">
+    <h6 class="card-body-title"><center>View Category Details</center></h6><hr>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered mg-b-0">
+
+            <thead class="bg-info">
+            <tr>
+                <th>Category</th>
+                <th>Enable / Disable</th>
+                <th>Full Details</th>
+                <th>Edit</th>
+                <th>Add Sub-Categories</th>
+                <th>View Sub-Categories</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="category in categories">
+                <td>{{category.name}}</td>
+                <td ng-if="category.status=='1'">
+                    <button type="button" class="button btn-danger" ng-click="disableCategory(category)"><i class="fa fa-ban mg-r-5"></i>Disable
+                    </button>
+                </td>
+                <td ng-if="category.status=='0'">
+                <button type="button" class="button btn-success" ng-click="enableCategory(category)"><i class="fa fa-check-square-o  mg-r-5"></i>Enable
+                    </button>
+                </td>
+                <td class="col-xs-2 ">
+                    <button  type="button" class="button btn-info" id="full-details" ng-click ="categoryDetails(category)">
+                        Full Details
+                    </button>
+                </td>
+                <td class="col-xs-2 ">
+                    <button type="button" class="button btn-info" id="edit"  ng-click ="editCategory(category)" >
+                        Edit Details
+                    </button>
+                </td>
+                <td class="col-xs-2 ">
+                    <button type="button" class="button btn-info" id="product"  ng-click ="addSubCategory(category)" ><i class="ion-bag"></i>
+                        Add Sub-Categories
+                    </button>
+                </td>
+                <td class="col-xs-2 ">
+                    <button type="button" class="button btn-info "   ng-click ="viewSubCategory(category)" ><i class="ion-bag"></i>
+                        View Sub-Categories
+                    </button>
+                </td>
+                <td class="col-xs-2 ">
+                    <button class="button btn-primary" ng-click="deleteCategory(category)" >
+                       Delete
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>

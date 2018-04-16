@@ -1,0 +1,13 @@
+{
+    "name": "adminin/admin",
+    "description": "A package for managing admin panel of an e-commerce website",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Athulya A S",
+            "email": "athulya416.as@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

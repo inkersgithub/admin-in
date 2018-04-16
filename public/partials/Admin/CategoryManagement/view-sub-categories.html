@@ -1,0 +1,39 @@
+<div class="card pd-20 pd-sm-40 mg-t-50" ng-controller="ViewSubCategoryController">
+    <h6 class="card-body-title"><center>View Sub Category Details</center></h6><hr>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered mg-b-0">
+
+            <thead class="bg-info">
+            <tr>
+                <th>Category</th>
+                <th>Full Details</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="subcategory in subcategories">
+                <td>{{subcategory.sub_category_name}}</td>
+                <td class="col-xs-2 ">
+                    <button  type="button" class="button btn-info" id="full-details" ng-click ="subCategoryDetails(subcategory)">
+                        Full Details
+                    </button>
+                </td>
+                <td class="col-xs-2 ">
+                    <button type="button" class="button btn-info" id="edit"  ng-click ="editSubCategoryDetails(subcategory)" >
+                        Edit Details
+                    </button>
+                </td>
+                <td class="col-xs-2 ">
+                    <button type="button" class="button btn-info" id="edit"  ng-click ="deleteSubCategory(subcategory)" >
+                        Delete
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>

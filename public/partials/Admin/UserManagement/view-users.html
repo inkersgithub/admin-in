@@ -1,0 +1,79 @@
+<div class="card pd-20 pd-sm-40 mg-t-50" ng-controller="indexController">
+<center><h6 class="card-body-title">View Users Details</h6></center><hr>
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered mg-b-0">
+            <thead class="bg-info">
+            <tr>
+                <th>Name</th>
+                <th>UserNnme</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Enable / Disable</th>
+                <th>Password Reset</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="user in users">
+                <td>{{user.name}}</td>
+                <td>{{user.user_name}}</td>
+                <td>{{user.mobile_no}}</td>
+                <td>{{user.email}}</td>
+                <td class="col-xs-2 ">
+                    <button class="button btn-info" id="edit"  ng-click ="editUser(user)">
+                        Edit
+                    </button>
+                </td>
+                <td ng-if="user.status=='1'">
+                    <button class="button btn-danger" ng-click="disableUser(user)"><i class="fa fa-ban mg-r-5"></i>Disable
+
+                    </button>
+                </td>
+                <td ng-if="user.status=='0'">
+                    <button class="button btn-success" ng-click="enableUser(user)"><i class="fa fa-check-square-o  mg-r-5"></i>Enable
+
+                    </button>
+                </td>
+                <td class="col-xs-2 ">
+                    <button class="button btn-primary" data-toggle="modal" data-target="#passwordReset" ng-click="passwordReset(user)" >
+                        Reset Password
+                    </button>
+                </td>
+                <td class="col-xs-2 ">
+                    <button class="button btn-primary" ng-click="deleteUser(user)" >
+                       Delete
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal fade" id="passwordReset" role="dialog" >
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 500px;height: 280px;" >
+                <div class="modal-body" >
+                    <form ng-submit="resetPassword(password)" name="passworChange">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="text" class="form-control" id="password" name="password" ng-model="password.passwords" ng-maxlength="16"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$">
+                            <p ng-show="passworChange.password.$error.maxlength"  style="text-align: left;color: #a00000;">* Username Contain Maximum 16 characters</p>
+                            <p ng-show="passworChange.password.$error.pattern"  style="text-align: left;color: #a00000;">* Password Contain Minium 8 Characters lowercase,uppercase and numbers</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Confirm Password</label>
+                            <input type="text" class="form-control" name="pwd" id="pwd" ng-model="password.confirmPassword" ng-pattern="password.passwords">
+                            <p ng-show="passworChange.pwd.$error.pattern" style="text-align: left;color: #a00000;">* Password Mismatch</p>
+
+                        </div>
+                        <div class="pull-right">
+                            <button type="submit" class="btn btn-success"  >Submit</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

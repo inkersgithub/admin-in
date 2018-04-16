@@ -1,0 +1,13 @@
+<div class="row row-sm mg-t-20"  ng-controller="ProductDetailsController">
+    <div class="col-md-20">
+        <div class="card pd-20 pd-sm-40 form-layout form-layout-4">
+        <center><h4>{{selectedProduct.product_name}}</h4></center>
+           <div class="row">
+                <div class="col-xs-4" ng-repeat="productDetail in productDetails">
+                   <img class="img-responsive" id="product-images"  ng-src="../storage/ProductsImages/{{productDetail.file_name}}"><br>
+                   <center><a ng-click="deleteProductImage(productDetail.id)"><i  class="fa fa-trash delete-image" aria-hidden="true"></i></a></center>
+                </div>
+            </div>          
+        </div>
+    </div>
+</div>

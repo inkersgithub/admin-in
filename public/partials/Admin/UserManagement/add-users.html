@@ -1,0 +1,74 @@
+<div class="row row-sm mg-t-20"  ng-controller="addUserController">
+    <div class="col-xl-6">
+        <div class="card pd-20 pd-sm-40 form-layout form-layout-4">
+            <center><h1 class="card-body-title">ADD-USERS</h1></center><hr>
+            <form ng-submit="add(user)" name="addusers">
+
+                <div class="row">
+                    <label class="col-sm-4 form-control-label">Name : <span class="tx-danger">*</span></label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+
+                        <input type="text" class="form-control" placeholder="Enter Full Name" id="name" name="name" ng-model="user.name"  >
+                        <p ng-if="!user.name"  style="text-align: left;color: #a00000;">* Full Name is required.</p>
+                    </div>
+                </div>
+
+                <div class="row mg-t-20">
+                    <label class="col-sm-4 form-control-label">User Name : <span class="tx-danger">*</span></label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                        <input type="text" class="form-control" placeholder="Enter User-name" id="username"  name="username" ng-model="user.username" ng-minlength="8"  ng-maxlength="16" ng-keyup='checkUsername()'  required >
+                        <div style="color: #a94442;">{{status}}</div>
+
+                        <p ng-show="addusers.username.$error.required" style="text-align: left;color: #a00000;">* Username field is required</p>
+                        <p ng-show="addusers.username.$error.minlength"  style="text-align: left;color: #a00000;">* Username Contain Atleast 8 Characters</p>
+                        <p ng-show="addusers.username.$error.maxlength"  style="text-align: left;color: #a00000;">* Username Contain Maximum 16 characters</p>
+
+                    </div>
+                </div>
+
+                <div class="row mg-t-20">
+                    <label class="col-sm-4 form-control-label">Password : <span class="tx-danger">*</span></label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                        <input type="text" class="form-control" placeholder="Enter Password" id="password" name="password" ng-model="user.password"   ng-maxlength="16"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" required >
+                        <p ng-show="addusers.password.$error.required" style="text-align: left;color: #a00000;">* Password field  is required</p>
+                        <p ng-show="addusers.password.$error.maxlength"  style="text-align: left;color: #a00000;">* Password Contain Maximum 16 characters</p>
+                        <p ng-show="addusers.password.$error.pattern"  style="text-align: left;color: #a00000;">* Password Contain Minimum 8 Characters lowercase,uppercase and numbers</p>
+
+                    </div>
+                </div>
+
+                <div class="row mg-t-20">
+                    <label class="col-sm-4 form-control-label">Role : <span class="tx-danger">*</span></label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+
+                        <select class="form-control select2" ng-model="user.rolesIn" ng-options="role.label for role in roles" name="role" required>
+                            <option value="">-- Select Roles --</option>
+                            <p ng-if="addusers.select.$invalid && addusers.$submitted" style="text-align: left;color: #a00000;"></p>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mg-t-20">
+                    <label class="col-sm-4 form-control-label">Mobile : </label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                        <input type="number" class="form-control" placeholder="Enter Mobile Number" name="mobile" id="mobile" ng-model="user.mobile">
+                    </div>
+                </div>
+
+                <div class="row mg-t-20">
+                    <label class="col-sm-4 form-control-label">Email : </label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                        <input type="email" class="form-control" placeholder="Enter email address" id="email" name="email" ng-model="user.email">
+                    </div>
+                </div>
+
+                <div class="form-layout-footer mg-t-30">
+                    <center><button type="submit" class="btn btn-info mg-r-5"  >Submit Form</button></center>
+                    <!--<button class="btn btn-secondary">Reset</button>-->
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
